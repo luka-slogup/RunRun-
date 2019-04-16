@@ -2,19 +2,54 @@
     position: absolute;
     box-sizing: border-box;
     margin: 0; padding: 0;
-    width: 100%; height: 80%;
-    top: 10%;
+    width: 100%; height: 60%;
+    top: 20%;
     border: 1px solid red;
     background: rgba(0,0,0, 0.5);
+    text-align: center;
     color: white;
+} 
+.animalNumContainer{
+    border: 2px solid orange;
+    
+    & button{
+        margin: 0; padding: 0;
+        width: 70px; height: 70px;
+        font-size: 50px;
+    }
+    & .AnimalNum{
+        display: inline-block;
+        width: 70px; height: 70px;
+        font-size: 50px;
+        color: white;
+    }
+}
+.checkBoxContainer{
+    border: 2px solid yellow;
+}
+.inputContainer{
+    border: 2px solid orange;
+    & input{
+        box-sizing: border-box;
+        margin: 5px; padding: 0;
+        width: 150px; height: 40px;
+        outline: 0; border: 1px solid white;
+        border-radius: 8px;
+        text-align: center;
+        background: rgba(255,255,255, 0.9);
+    }
 }
 
+.submitContainer{
+    border: 2px solid yellow;    
+}
+    
 .EndModal{
     position: absolute;
     box-sizing: border-box;
     margin: 0; padding: 0;
-    width: 100%; height: 80%;
-    top: 10%;
+    width: 100%; height: 60%;
+    top: 20%;
     border: 1px solid yellow;
     background: rgba(0,0,0, 0.5);
     color: white;

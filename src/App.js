@@ -5,6 +5,22 @@ import StartModal from './components/startModal';
 import EndModal from './components/endModal';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    (()=>{
+      const AnimalArray = this.state.Animal
+      let i = AnimalArray.length-1
+      for(; i>0; i--){
+        const j = Math.floor(Math.random()*(i - 0))
+        const temp = AnimalArray[i]
+        AnimalArray[i] = AnimalArray[j]
+        AnimalArray[j] = temp
+      }
+      return this.setState.Animal = AnimalArray
+    })();
+  }
     state ={
       StartModalShow : true,
       EndModalShow : false,
@@ -13,33 +29,68 @@ class App extends Component {
       Animal : [
         { 
           id : 0,
-          name : '토끼',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
+          name : '달팽이',
+          src : 'https://image.flaticon.com/icons/svg/826/826908.svg'
         },
         { 
           id : 1,
-          name : '거북이',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
+          name : '참새',
+          src : 'https://image.flaticon.com/icons/svg/826/826910.svg'
         },
         { 
           id : 2,
-          name : '사자',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
+          name : '꿀벌',
+          src : 'https://image.flaticon.com/icons/svg/826/826944.svg'
         },
         { 
           id : 3,
+          name : '펭귄',
+          src : 'https://image.flaticon.com/icons/svg/826/826912.svg'
+        },
+        { 
+          id : 4,
+          name : '해파리',
+          src : 'https://image.flaticon.com/icons/svg/826/826905.svg'
+        },
+        { 
+          id : 5,
+          name : '버섯',
+          src : 'https://image.flaticon.com/icons/svg/826/826940.svg'
+        },
+        { 
+          id : 6,
+          name : '회오리',
+          src : 'https://image.flaticon.com/icons/svg/826/826931.svg'
+        },
+        { 
+          id : 7,
+          name : '사슴벌레 ',
+          src : 'https://image.flaticon.com/icons/svg/826/826932.svg'
+        },
+        { 
+          id : 8,
+          name : '태양',
+          src : 'https://image.flaticon.com/icons/svg/826/826904.svg'
+        },
+        { 
+          id : 9,
+          name : '돌',
+          src : 'https://image.flaticon.com/icons/svg/826/826917.svg'
+        },
+        { 
+          id : 10,
+          name : '나비',
+          src : 'https://image.flaticon.com/icons/svg/826/826907.svg'
+        },
+        { 
+          id : 11,
           name : '개구리',
           src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
         },
         { 
-          id : 4,
-          name : '게',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
-        },
-        { 
-          id : 5,
-          name : '상어',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
+          id : 12,
+          name : '거북이',
+          src : 'https://image.flaticon.com/icons/svg/720/720885.svg'
         },
       ]
 
@@ -65,18 +116,34 @@ class App extends Component {
               StartShow : true // Start 컴포넌트 등장
           })
   }
-  _AnimalCreate = () => {
-    const { Animal } = this.state;
-    
+  _StartClose = () => {
+          this.setState({
+              StartShow : false
+          })
   }
+
+  _NameChange = (e) => {
+    let animal = this.state.Animal
+    const targetID = e.target.id
+    const targetValue = e.target.value
+    animal[[targetID]].name = targetValue
+    this.setState({
+      Animal : animal
+    })
+  }
+
+  _RunStart = (e) => {
+    console.log('달리기시작')
+  }
+
   render() {
     return (
       <div className="App">
-        <Field Animal={this.state.Animal}/>
-        {(this.state.StartModalShow === true) && <StartModal AnimalCount={this.state.AnimalCount} IncreaseAnimal={this._IncreaseAnimal} DecreaseAnimal={this._DecreaseAnimal} StartShow={this._StartShow}/>}
+        <Field Animal={this.state.Animal} AnimalCount={this.state.AnimalCount}/>
+        {(this.state.StartModalShow === true) && <StartModal NameChange={this._NameChange} Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} IncreaseAnimal={this._IncreaseAnimal} DecreaseAnimal={this._DecreaseAnimal} StartShow={this._StartShow}/>}
         {(this.state.EndModalShow === true) && <EndModal />}
         <div className="StartWrap">
-          {(this.state.StartShow === true) && (<Start />)}
+          {(this.state.StartShow === true) && (<Start RunStart={this._RunStart} StartClose={this._StartClose}/>)}
         </div>
       </div>
     );
@@ -84,9 +151,29 @@ class App extends Component {
 }
 
 class Start extends Component{
+  constructor(props){
+    super(props);
+    this._StartClose = this._StartClose.bind(this);
+    this._RunStart = this._RunStart.bind(this);
+    this._onClick = this._onClick.bind(this);
+    console.log('0')
+  }
+  _StartClose(){
+    console.log('1')
+    return this.props.StartClose
+  }
+  _RunStart(){
+    console.log('2')
+    return this.props.RunStart
+  }
+  _onClick(){
+    console.log('3')
+    this._StartClose()
+    this._RunStart()
+  }
   render(){
       return(
-          <div className="Start">
+          <div className="Start" onClick={this._onClick}>
               <h1>Start!</h1>
           </div>
     );

@@ -6,8 +6,7 @@ class Field extends Component {
     render(){
         return (
             <div className="Field">
-                <h1>field</h1>
-                <Animal className="eachAnimal" Animal={this.props.Animal} />
+                <Animal className="eachAnimal" Animal={this.props.Animal} AnimalCount={this.props.AnimalCount} />
             </div>
         );
     }
