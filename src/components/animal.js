@@ -3,6 +3,10 @@ import '../style/_animal.scss';
 
 
 class Animal extends Component{
+    constructor(props){
+        super(props)
+    }
+
     static defaultProps = {
         Animal:{
             id: 0,
@@ -10,10 +14,20 @@ class Animal extends Component{
             src: 'someUrl',
         }
     }
+    
+    componentDidUpdate(prevProps){
+        const AnimalList = document.getElementsByClassName('Animal')
+        if(prevProps.RunStart !== this.props.RunStart){
+            for (let eachAnimal of AnimalList){
+               this.props.RunAnimal(eachAnimal)
+            }
+        }
+    }
 
     render(){
         const AnimalFromApp = this.props.Animal
         const AnimalCountFromApp = this.props.AnimalCount
+
         return(
             <Fragment>
                 <div className="AnimalList">

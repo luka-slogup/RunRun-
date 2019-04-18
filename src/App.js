@@ -8,6 +8,7 @@ class App extends Component {
 
   constructor(props){
     super(props);
+    this._RunAnimal = this._RunAnimal.bind(this);
 
     (()=>{
       const AnimalArray = this.state.Animal
@@ -21,10 +22,12 @@ class App extends Component {
       return this.setState.Animal = AnimalArray
     })();
   }
+
     state ={
-      StartModalShow : true,
-      EndModalShow : false,
-      StartShow : false,
+      StartModalShow : true, // 게임설정 모달창 등장여부
+      EndModalShow : false, // 결과 모달창 등장여부
+      StartShow : false, // Start! 버튼의 등장여부
+      RunStart : false, // true가 되면 동물들이 움직이기 시작한다.
       AnimalCount : 2, // modal-StartModal, animal, modal-EndModal로 전달됨
       Animal : [
         { 
@@ -132,14 +135,29 @@ class App extends Component {
     })
   }
 
-  _RunStart = (e) => {
-    console.log('달리기시작')
-  }
+  _RunStart = () => {
+    this.setState({
+      RunStart : true
+    })
+    }
+
+  _RunAnimal(e){
+      console.log('RunAnimal() 실행됨')
+      console.log(e)
+      if(this.state.RunStart === true){
+        setInterval(()=>{
+          const rannum = Math.floor(Math.random() * (-10))
+          e.style.transform += `translateY(${rannum}px)`
+        }, 30);
+        }
+    }
+  
+
 
   render() {
     return (
       <div className="App">
-        <Field Animal={this.state.Animal} AnimalCount={this.state.AnimalCount}/>
+        <Field Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} RunAnimal={this._RunAnimal} RunStart={this.state.RunStart}/>
         {(this.state.StartModalShow === true) && <StartModal NameChange={this._NameChange} Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} IncreaseAnimal={this._IncreaseAnimal} DecreaseAnimal={this._DecreaseAnimal} StartShow={this._StartShow}/>}
         {(this.state.EndModalShow === true) && <EndModal />}
         <div className="StartWrap">
@@ -153,27 +171,15 @@ class App extends Component {
 class Start extends Component{
   constructor(props){
     super(props);
-    this._StartClose = this._StartClose.bind(this);
-    this._RunStart = this._RunStart.bind(this);
     this._onClick = this._onClick.bind(this);
-    console.log('0')
-  }
-  _StartClose(){
-    console.log('1')
-    return this.props.StartClose
-  }
-  _RunStart(){
-    console.log('2')
-    return this.props.RunStart
   }
   _onClick(){
-    console.log('3')
-    this._StartClose()
-    this._RunStart()
+    this.props.StartClose()
+    this.props.RunStart()
   }
   render(){
       return(
-          <div className="Start" onClick={this._onClick}>
+          <div id="Start" className="Start" onClick={this._onClick}>
               <h1>Start!</h1>
           </div>
     );
