@@ -3,9 +3,6 @@ import '../style/_animal.scss';
 
 
 class Animal extends Component{
-    constructor(props){
-        super(props)
-    }
 
     static defaultProps = {
         Animal:{
@@ -31,30 +28,36 @@ class Animal extends Component{
         return(
             <Fragment>
                 <div className="AnimalList">
-                    {AnimalCountFromApp >= 2 && (<div className="Animal" id={AnimalFromApp[0].id}>
+                    {AnimalCountFromApp >= 2 && (<div className="Animal" id={AnimalFromApp[0].id} name={AnimalFromApp[0].name}>
                         <img src={AnimalFromApp[0].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[0].name}</div>
                     </div>)}
-                    {AnimalCountFromApp >= 2 && (<div className="Animal" id={AnimalFromApp[1].id}>
+                    {AnimalCountFromApp >= 2 && (<div className="Animal" id={AnimalFromApp[1].id} name={AnimalFromApp[1].name}>
                         <img src={AnimalFromApp[1].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[1].name}</div>
                     </div>)}
-                    {AnimalCountFromApp >= 3 && (<div className="Animal" id={AnimalFromApp[2].id}>
+                    {AnimalCountFromApp >= 3 && (<div className="Animal" id={AnimalFromApp[2].id} name={AnimalFromApp[2].name}>
                         <img src={AnimalFromApp[2].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[2].name}</div>
                     </div>)}
-                    {AnimalCountFromApp >= 4 && (<div className="Animal" id={AnimalFromApp[3].id}>
+                    {AnimalCountFromApp >= 4 && (<div className="Animal" id={AnimalFromApp[3].id} name={AnimalFromApp[3].name}>
                         <img src={AnimalFromApp[3].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[3].name}</div>
                     </div>)}
-                    {AnimalCountFromApp >= 5 && (<div className="Animal" id={AnimalFromApp[4].id}>
+                    {AnimalCountFromApp >= 5 && (<div className="Animal" id={AnimalFromApp[4].id} name={AnimalFromApp[4].name}>
                         <img src={AnimalFromApp[4].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[4].name}</div>
                     </div>)}
-                    {AnimalCountFromApp >= 6 && (<div className="Animal" id={AnimalFromApp[5].id}>
+                    {AnimalCountFromApp >= 6 && (<div className="Animal" id={AnimalFromApp[5].id} name={AnimalFromApp[5].name}>
                         <img src={AnimalFromApp[5].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[5].name}</div>
                     </div>)}
+                    {/* {AnimalFromApp.map((obj)=>{
+                        return <div className="Animal" id={obj.id} name={obj.name}>
+                            <img src={obj.src} alt="animal"/>
+                            <div className="AnimalName">{obj.name}</div>
+                        </div>
+                    })} */}
                 </div>    
             </Fragment>
         )   

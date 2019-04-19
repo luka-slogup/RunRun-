@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this._RunAnimal = this._RunAnimal.bind(this);
+    this._endLineoffset = this._endLineoffset.bind(this);
 
     (()=>{
       const AnimalArray = this.state.Animal
@@ -28,6 +29,10 @@ class App extends Component {
       EndModalShow : false, // 결과 모달창 등장여부
       StartShow : false, // Start! 버튼의 등장여부
       RunStart : false, // true가 되면 동물들이 움직이기 시작한다.
+      endLineoffset : 0,
+      // AnimalReady: false,
+      AnimalRank : 0,
+      RankResult : [],
       AnimalCount : 2, // modal-StartModal, animal, modal-EndModal로 전달됨
       Animal : [
         { 
@@ -116,12 +121,15 @@ class App extends Component {
   _StartShow = () => {
           this.setState({
               StartModalShow : false, // Start-modal 퇴장
-              StartShow : true // Start 컴포넌트 등장
+              StartShow : true, // Start 컴포넌트 등장
+              // AnimalReady : true // 동물들 준비 운동
           })
+
   }
   _StartClose = () => {
           this.setState({
-              StartShow : false
+              StartShow : false,
+              // AnimalReady : false
           })
   }
 
@@ -142,24 +150,72 @@ class App extends Component {
     }
 
   _RunAnimal(e){
-      console.log('RunAnimal() 실행됨')
       console.log(e)
-      if(this.state.RunStart === true){
-        setInterval(()=>{
-          const rannum = Math.floor(Math.random() * (-10))
-          e.style.transform += `translateY(${rannum}px)`
+
+      // if(this.state.AnimalReady === true){
+      //   console.log('자 움직여라')
+      //   setInterval(()=>{
+      //     const rannum = Math.floor(Math.random() * (-10))
+      //     e.style.transform = `translateY(${rannum}px)`
+      //   }, 30);
+      // }
+
+      if(this.state.RunStart === true){ // RunStart가 true일경우 Interval 시작
+        let tmp = 40 // 동물 style.top 기본 값
+        let speed = 7 // 동물 달리기 속도
+        let intervalOn = true // 동물을 멈추기 위한 변수. Interval은 끝나지 않는다.
+        let rankCheck = true  // 결승선에 닿으면 false가 되고 rank숫자 변동을 멈춘다.
+        setTimeout(()=>{ // 2초 뒤 가속 혹은 감속
+            const speedPlus = Math.floor(Math.random()* (8)-3)
+            speed += speedPlus
+            console.log('2000ms 후 속도변경')
+        }, 2000);
+        
+        const RunInterval = setInterval(()=>{ // 달리기 Interval
+            if(intervalOn === true){ // 달리기 시작
+                const rannum = Math.floor(Math.random() * (speed + 1))
+                tmp += rannum
+                e.style.bottom = tmp +'px'
+            }
+
+            if(e.offsetTop <= this.state.endLineoffset-55 && rankCheck){ // 결승선에 닿았는지 체크
+              rankCheck = false // 결승선에 닿았으므로 랭크 올림 멈춤
+              this.setState({
+                AnimalRank : this.state.AnimalRank + 1,
+                RankResult : this.state.RankResult.concat({rank:this.state.AnimalRank+1,name:e.getAttribute('name')})
+              })
+
+              if(this.state.AnimalRank === this.state.AnimalCount){ // 마지막 랭크과 동물전체숫자 같을때
+                console.log('경기종료')
+                this.setState({
+                  EndModalShow : true
+                })
+              }
+            }
+            
+            if(e.offsetTop <= this.state.endLineoffset-70){
+              intervalOn = false // 결승선을 넘었으므로 달리기 멈춤
+              e.style.bottom = 578 + 'px' // 달리기 멈추고 정렬
+              clearInterval(RunInterval) // RunInterval 종료
+            }
         }, 30);
-        }
+      }
     }
+
+  _endLineoffset(e){
+    this.setState({
+      endLineoffset : e
+    })
+  }
   
 
 
   render() {
     return (
       <div className="App">
-        <Field Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} RunAnimal={this._RunAnimal} RunStart={this.state.RunStart}/>
+        <Field Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} RunAnimal={this._RunAnimal} RunStart={this.state.RunStart} endLineoffset={this._endLineoffset}/>
         {(this.state.StartModalShow === true) && <StartModal NameChange={this._NameChange} Animal={this.state.Animal} AnimalCount={this.state.AnimalCount} IncreaseAnimal={this._IncreaseAnimal} DecreaseAnimal={this._DecreaseAnimal} StartShow={this._StartShow}/>}
-        {(this.state.EndModalShow === true) && <EndModal />}
+        {(this.state.EndModalShow === true) && <EndModal RankResult={this.state.RankResult}/>}
         <div className="StartWrap">
           {(this.state.StartShow === true) && (<Start RunStart={this._RunStart} StartClose={this._StartClose}/>)}
         </div>
@@ -173,6 +229,12 @@ class Start extends Component{
     super(props);
     this._onClick = this._onClick.bind(this);
   }
+  componentDidMount(){
+    const StartText = document.getElementsByClassName('StartText')[0]
+    setInterval(()=>{
+      StartText.style.transform = `translateY(10px)`
+    },100)
+  }
   _onClick(){
     this.props.StartClose()
     this.props.RunStart()
@@ -180,7 +242,15 @@ class Start extends Component{
   render(){
       return(
           <div id="Start" className="Start" onClick={this._onClick}>
-              <h1>Start!</h1>
+              <div className="StartText">
+                <span>터</span>
+                <span>치</span>
+                <span>하</span>
+                <span>면</span>
+                <span>시</span>
+                <span>작</span>
+                <span>!</span>
+              </div>
           </div>
     );
   }
