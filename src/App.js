@@ -178,7 +178,7 @@ class App extends Component {
                 e.style.bottom = tmp +'px'
             }
 
-            if(e.offsetTop <= this.state.endLineoffset-55 && rankCheck){ // 결승선에 닿았는지 체크
+            if(e.offsetTop <= this.state.endLineoffset-e.offsetHeight && rankCheck){ // 결승선에 닿았는지 체크
               rankCheck = false // 결승선에 닿았으므로 랭크 올림 멈춤
               this.setState({
                 AnimalRank : this.state.AnimalRank + 1,
@@ -193,9 +193,9 @@ class App extends Component {
               }
             }
             
-            if(e.offsetTop <= this.state.endLineoffset-70){
+            if(e.offsetTop <= this.state.endLineoffset-e.offsetHeight){
               intervalOn = false // 결승선을 넘었으므로 달리기 멈춤
-              e.style.bottom = 578 + 'px' // 달리기 멈추고 정렬
+              e.style.bottom = window.innerHeight - e.offsetHeight + 'px' // 달리기 멈추고 정렬
               clearInterval(RunInterval) // RunInterval 종료
             }
         }, 30);

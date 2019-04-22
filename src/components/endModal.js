@@ -7,10 +7,12 @@ class EndModal extends Component{
         return(
             <div className="EndModal">
                 {RankResult.map((obj)=>{
-                    return <div key={obj.rank}>
-                    {obj.name}은 {obj.rank} 등 !
+                    return <div className="RankResultText" key={obj.rank}>
+                    {obj.rank} 등 : {obj.name}
                     </div>
                 })}
+
+                <div className="reStart"> 다시하기! </div>
             </div>
         )
     }

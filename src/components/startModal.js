@@ -7,16 +7,22 @@ class StartModal extends Component{
 
         return(
             <div className="StartModal">
-                    <div className="animalNumContainer">
-                        <div>러너숫자</div>
-                        <button onClick={this.props.DecreaseAnimal}>-</button>
-                        <span className="AnimalNum">{this.props.AnimalCount}</span>
-                        <button onClick={this.props.IncreaseAnimal}>+</button>
+                    <div className="logoContainer">
+                        <div className="logo"/>
                     </div>
-                    <div className="checkBoxContainer">
+                    <div className="animalNumContainer">
+                        <div className="buttonContainer">
+                            {(this.props.AnimalCount > 2) && <button onClick={this.props.DecreaseAnimal}>-</button>}
+                        </div>
+                        <span className="AnimalNum">{this.props.AnimalCount}</span>
+                        <div className="buttonContainer">
+                            {(this.props.AnimalCount < 6) && <button onClick={this.props.IncreaseAnimal}>+</button>}
+                        </div>
+                    </div>
+                    {/* <div className="checkBoxContainer">
                         <input id="dummyCheck" type="checkBox"/>
                         <label htmlFor="dummyCheck">장애물 등장</label>
-                    </div>
+                    </div> */}
                     <div className="inputContainer">
                         {(this.props.AnimalCount >= 2) && <input id="0" placeholder={this.props.Animal[0].name} vlaue={this.props.Animal[0].name} onChange={this.props.NameChange}/>}
                         {(this.props.AnimalCount >= 2) && <input id="1" placeholder={this.props.Animal[1].name} vlaue={this.props.Animal[1].name} onChange={this.props.NameChange}/>}
@@ -26,7 +32,7 @@ class StartModal extends Component{
                         {(this.props.AnimalCount >= 6) && <input id="5" placeholder={this.props.Animal[5].name} vlaue={this.props.Animal[5].name} onChange={this.props.NameChange}/>}
                     </div>
                     <div className="submitContainer">
-                        <button onClick={this.props.StartShow}>설정끝!</button>
+                        <button onClick={this.props.StartShow}>준비 끝!</button>
                     </div>
             </div>
         )

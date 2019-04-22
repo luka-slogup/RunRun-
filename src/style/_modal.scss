@@ -2,46 +2,112 @@
     position: absolute;
     box-sizing: border-box;
     margin: 0; padding: 0;
-    width: 100%; height: 60%;
-    top: 20%;
-    border: 1px solid red;
-    background: rgba(0,0,0, 0.4);
+    width: 100%; height: 80%;
+    top: 5%;
+    // border: 2px solid red;
+    // background: rgba(0,0,0, 0.4);
     text-align: center;
     color: white;
-} 
-.animalNumContainer{
-    border: 2px solid orange;
-    
+    font-family: 'Goyang';
+}
+.logoContainer{ // 로고 컨테이너
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 37%;
+    // border: 1px solid red;
+    & .logo{
+        position: absolute;
+        top: 5px;
+        width: 90%; height: 100%;
+        background: url("../image/logo.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        animation: bounce .3s ease infinite alternate;
+          }
+    @keyframes bounce {
+        100% {top: -5px;}
+    }
+          
+}
+.animalNumContainer{  // 숫자설정 컨테이너
+    // border: 2px solid orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; height: 20%;
+    & .buttonContainer{
+        box-sizing: border-box;
+        margin: 0; padding: 0;
+        width: 10%; height: 33%;
+        border: none;
+        border-radius: 100px;
+        background : rgba(255,255,255,0.8)
+    }
     & button{
         margin: 0; padding: 0;
-        width: 70px; height: 70px;
-        font-size: 50px;
+        width: 100%; height: 100%;
+        border: none;
+        outline: none;
+        border-radius: 100px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 700;
+        color: black;
+        background-color: white;
+        &:active{
+            border: 2px solid yellowgreen
+        }
     }
     & .AnimalNum{
-        display: inline-block;
-        width: 70px; height: 70px;
-        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0; padding: 0;
+        width: 20%; height: 70%;
+        font-size: 5em;
         color: white;
     }
 }
-.checkBoxContainer{
-    border: 2px solid yellow;
+.checkBoxContainer{ // 체크박스 컨테이너
+    // border: 2px solid yellow;
 }
-.inputContainer{
-    border: 2px solid orange;
+.inputContainer{ // 이름 컨테이너
+    // border: 2px solid orange;
+    width: 100%; height: 28%;
     & input{
         box-sizing: border-box;
-        margin: 5px; padding: 0;
-        width: 150px; height: 40px;
+        margin: 1%; padding: 0;
+        width: 41%; height: 26%;
         outline: 0; border: 1px solid white;
-        border-radius: 8px;
+        border-radius: 5px;
         text-align: center;
-        background: rgba(255,255,255, 0.9);
+        background: rgba(255,255,255, 1);
+        font-size: 1.2em;
+        &:focus{
+            border: 2px solid yellowgreen;
+        }
     }
 }
 
-.submitContainer{
-    border: 2px solid yellow;    
+.submitContainer{ // 준비끝! 컨테이너
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    width: 100%; height: 15%;
+    // border: 2px solid yellow;
+    & button{
+        width: 23%; height: 53%;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: 700;
+        background-color: white;
+    }
 }
     
 .EndModal{
@@ -50,7 +116,11 @@
     margin: 0; padding: 0;
     width: 100%; height: 60%;
     top: 20%;
-    border: 1px solid yellow;
-    background: rgba(0,0,0, 0.5);
+    border: 2px solid red;
+    // background: rgba(0,0,0, 0.5);
     color: white;
+}
+
+.RankResultText{
+    border: 1px solid red;
 }

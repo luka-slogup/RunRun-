@@ -1,8 +1,16 @@
+@font-face { font-family: 'Goyang'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff')
+  format('woff'); font-weight: normal; font-style: normal; }
+
 .App{
   position: absolute;
   margin: 0; padding: 0;
-  width: 100%; height: 100vh;
-  background-color: antiquewhite;
+  width: 100%; height: 100%;
+  max-width: 900px;
+  overflow: hidden;
+}
+.App *{
+  font-family: 'Goyang';
 }
 
 .StartWrap{
@@ -20,7 +28,7 @@
   align-items: center;
   width: 100%; height: 100%;
   margin: 0; padding: 0;
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 .StartText span {
@@ -29,7 +37,7 @@
   display: inline-block;
   animation: bounce .3s ease infinite alternate;
   font-family: 'Black Han Sans', sans-serif;
-  font-size: 45px;
+  font-size: 1.5em;
   color: #FFF;
   text-shadow: 0 10px 10px rgba(0, 0, 0, .4);
 }
