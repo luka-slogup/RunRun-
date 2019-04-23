@@ -149,6 +149,6 @@
         animation: return 2s ease infinite
     }
     @keyframes return{
-        100% {transform: rotate(360deg)}
+        100% {transform: rotate(-360deg)}
     }
 }
