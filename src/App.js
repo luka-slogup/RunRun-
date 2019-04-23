@@ -10,8 +10,6 @@ class App extends Component {
     super(props);
     this._RunAnimal = this._RunAnimal.bind(this);
     this._endLineoffset = this._endLineoffset.bind(this);
-    const App = document.getElementsByClassName('App');
-    App.style.height = window.innerHeight;
   }
   componentDidMount(){
         (()=>{
@@ -25,7 +23,9 @@ class App extends Component {
           }
           return this.setState.Animal = AnimalArray
         })();
-
+        
+        const AppDiv = document.getElementsByClassName('App')[0];
+        AppDiv.style.height = window.innerHeight + 'px'
   }
 
     state ={
