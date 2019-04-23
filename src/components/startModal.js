@@ -19,10 +19,7 @@ class StartModal extends Component{
                             {(this.props.AnimalCount < 6) && <button onClick={this.props.IncreaseAnimal}>+</button>}
                         </div>
                     </div>
-                    {/* <div className="checkBoxContainer">
-                        <input id="dummyCheck" type="checkBox"/>
-                        <label htmlFor="dummyCheck">장애물 등장</label>
-                    </div> */}
+
                     <div className="inputContainer">
                         {(this.props.AnimalCount >= 2) && <input id="0" placeholder={this.props.Animal[0].name} vlaue={this.props.Animal[0].name} onChange={this.props.NameChange}/>}
                         {(this.props.AnimalCount >= 2) && <input id="1" placeholder={this.props.Animal[1].name} vlaue={this.props.Animal[1].name} onChange={this.props.NameChange}/>}

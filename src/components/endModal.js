@@ -12,7 +12,10 @@ class EndModal extends Component{
                     </div>
                 })}
 
-                <div className="reStart"> 다시하기! </div>
+                {(this.props.reStartShow)&&<div className="reStart" onClick={this.props.reStart}> 
+                <img className="reStartimg" src="https://image.flaticon.com/icons/svg/1574/1574360.svg" alt="return"/>
+                다시하기!
+                </div>}
             </div>
         )
     }

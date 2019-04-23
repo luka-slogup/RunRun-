@@ -19,6 +19,11 @@ class Animal extends Component{
                this.props.RunAnimal(eachAnimal)
             }
         }
+        if(this.props.RunStart === false){
+            for (let eachAnimal of AnimalList){
+                eachAnimal.style.bottom = '5%'
+            }
+        }
     }
 
     render(){
@@ -52,12 +57,6 @@ class Animal extends Component{
                         <img src={AnimalFromApp[5].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[5].name}</div>
                     </div>)}
-                    {/* {AnimalFromApp.map((obj)=>{
-                        return <div className="Animal" id={obj.id} name={obj.name}>
-                            <img src={obj.src} alt="animal"/>
-                            <div className="AnimalName">{obj.name}</div>
-                        </div>
-                    })} */}
                 </div>    
             </Fragment>
         )   
