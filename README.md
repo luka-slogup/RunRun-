@@ -1,4 +1,4 @@
-# React를 사용해서 만든 미니게임 페이지입니다.
+# React.js 기반의 미니게임입니다.
 
 ### [미니게임 연결](https://sample-react-runrun.herokuapp.com/)  
 ●  기간 2019.04.15 ~ 2019.04.23 / 1인 프로젝트  
