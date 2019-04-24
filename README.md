@@ -1,6 +1,7 @@
 # React.js 기반의 미니게임입니다.
 
-### [미니게임 연결](https://sample-react-runrun.herokuapp.com/) ####(heroku특성 상 시간소요있음)
+### [미니게임 연결](https://sample-react-runrun.herokuapp.com/)
+(heroku 연결시간 있음)
 ●  기간 2019.04.15 ~ 2019.04.23 / 1인 프로젝트  
 ●  **모바일**에 최적화 되어있는 웹 페이지입니다.  
 ●  React를 공부하며, 학원 동기들과 점심내기를 하기 위해 만들었습니다.  
