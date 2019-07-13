@@ -57,7 +57,23 @@ class Animal extends Component{
                         <img src={AnimalFromApp[5].src} alt="animal"/>
                         <div className="AnimalName">{AnimalFromApp[5].name}</div>
                     </div>)}
-                </div>   
+                </div>
+                <div id="preload">
+                    <img src={'https://image.flaticon.com/icons/svg/826/826908.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826910.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826944.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826912.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826905.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826940.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826931.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826932.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826904.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826917.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/826/826907.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/1596/1596601.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/720/720885.svg'} alt="a"></img>
+                    <img src={'https://image.flaticon.com/icons/svg/1574/1574360.svg'} alt="a"></img>
+                </div>    
             </Fragment>
         )   
     }
