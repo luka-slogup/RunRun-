@@ -26,11 +26,6 @@ class App extends Component {
         
         const AppDiv = document.getElementsByClassName('App')[0];
         AppDiv.style.height = window.innerHeight + 'px'
-        
-        const http = require("http");
-        setInterval(function() {
-        http.get("https://sample-react-runrun.herokuapp.com/");
-        }, 300000);
   }
 
     state ={
