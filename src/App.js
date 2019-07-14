@@ -29,7 +29,7 @@ class App extends Component {
         
         const http = require("http");
         setInterval(function() {
-        http.get("https://sample-react-runrun.herokuapp.com/");
+        http.get("https://runanimal.herokuapp.com/");
         }, 300000);
   }
 
