@@ -42,68 +42,58 @@ class App extends Component {
       Animal : [
         { 
           id : 0,
-          name : '달팽이',
-          src : 'https://image.flaticon.com/icons/svg/826/826908.svg'
+          name : '판다',
+          src : 'https://i.imgur.com/xUiYtmp.png'
         },
         { 
           id : 1,
-          name : '참새',
-          src : 'https://image.flaticon.com/icons/svg/826/826910.svg'
+          name : '물개',
+          src : 'https://i.imgur.com/xLGBGQK.png'
         },
         { 
           id : 2,
-          name : '꿀벌',
-          src : 'https://image.flaticon.com/icons/svg/826/826944.svg'
+          name : '박쥐',
+          src : 'https://i.imgur.com/6grBe5a.png'
         },
         { 
           id : 3,
-          name : '펭귄',
-          src : 'https://image.flaticon.com/icons/svg/826/826912.svg'
+          name : '고양이',
+          src : 'https://i.imgur.com/h2uO73u.png'
         },
         { 
           id : 4,
-          name : '해파리',
-          src : 'https://image.flaticon.com/icons/svg/826/826905.svg'
+          name : '개구리',
+          src : 'https://i.imgur.com/xphMaF8.png'
         },
         { 
           id : 5,
-          name : '버섯',
-          src : 'https://image.flaticon.com/icons/svg/826/826940.svg'
+          name : '문어',
+          src : 'https://i.imgur.com/84tfcOx.png'
         },
         { 
           id : 6,
-          name : '회오리',
-          src : 'https://image.flaticon.com/icons/svg/826/826931.svg'
+          name : '코알라',
+          src : 'https://i.imgur.com/YN18LuT.png'
         },
         { 
           id : 7,
-          name : '사슴벌레 ',
-          src : 'https://image.flaticon.com/icons/svg/826/826932.svg'
+          name : '부엉이 ',
+          src : 'https://i.imgur.com/EvGjA83.png'
         },
         { 
           id : 8,
-          name : '태양',
-          src : 'https://image.flaticon.com/icons/svg/826/826904.svg'
+          name : '꽃게',
+          src : 'https://i.imgur.com/ZyBoAam.png'
         },
         { 
           id : 9,
-          name : '돌',
-          src : 'https://image.flaticon.com/icons/svg/826/826917.svg'
+          name : '테디베어',
+          src : 'https://i.imgur.com/EUCv2xK.png'
         },
         { 
           id : 10,
-          name : '나비',
-          src : 'https://image.flaticon.com/icons/svg/826/826907.svg'
-        },
-        { 
-          id : 11,
-          name : '개구리',
-          src : 'https://image.flaticon.com/icons/svg/1596/1596601.svg'
-        },
-        { 
-          id : 12,
-          name : '거북이',
-          src : 'https://image.flaticon.com/icons/svg/720/720885.svg'
+          name : '원숭이',
+          src : 'https://i.imgur.com/BlXiaJ8.png'
         },
       ]
 
